@@ -6,9 +6,9 @@ export default {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          Game: {
             screens: {
-              TabOneScreen: 'one',
+              GameScreen: 'one',
             },
           },
           TabTwo: {

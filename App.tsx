@@ -6,6 +6,7 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
+import { AppProvider } from './context/context';
 import { Game } from './game/Game';
 
 export default function App() {
@@ -22,8 +23,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <AppProvider>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </AppProvider>
       </SafeAreaProvider>
     );
   }

@@ -64,11 +64,25 @@ export class Game {
     return false;
   }
 
-  takeTurn() {
+  takeTurn(): void {
     this.playsLeft = 3;
     if (this.playerActive.hand.length === 0) {
       this.deck.drawFive(this.playerActive)
+    } else {
+      this.deck.drawTwo(this.playerActive)
     }
+    while (this.playsLeft > 0) {
+      this.printBoard();
+
+      // GET MOVE FROM PLAYER
+
+      this.playsLeft -= 1;
+    }
+    this.endTurn()
+  }
+
+  endTurn() {
+
   }
 
 

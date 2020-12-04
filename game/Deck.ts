@@ -3,6 +3,7 @@ import { PropertyWildCard } from './PropertyWildCard';
 import { ActionCard } from './ActionCard'; 
 import { RentCard } from './RentCard'; 
 import { MoneyCard } from './MoneyCard';
+import { Player } from './Player';
 
 export class Deck {
   deck: Array<PropertyCard | PropertyWildCard | ActionCard | RentCard | MoneyCard>;
@@ -118,48 +119,40 @@ export class Deck {
     ]
   }
 
-  shuffle() {
-    
+  shuffle(): void {
+    let m = this.deck.length;
+    let t;
+    let i;
+  
+    while (m) {
+      i = Math.floor(Math.random() * m--);
+      t = this.deck[m];
+      this.deck[m] = this.deck[i];
+      this.deck[i] = t;
+    }
+
   }
 
-  dealCards() {
+  // Consolidate below methods to single method called with card count
 
+  drawTwo(player: Player): void {
+    for (let i = 0; i < 2; i++) {
+      let temp = this.deck.pop();
+      temp ? player.hand.push(temp) : null;
+    }
   }
 
-  drawTwo(): void {
-    this.deck.pop();
+  drawFive(player: Player): void {
+    for (let i = 0; i < 5; i++) {
+      let temp = this.deck.pop();
+      temp ? player.hand.push(temp) : null;
+    }
   }
 
-  drawFive() {
-
+  dealCards(players: Player[]): void {
+    players.forEach(player => {
+      this.drawFive(player)
+    })
   }
 
 }
-
-        
-/*
-// Fisher yates shuffle method
-shuffle() {
-  for i in range(len(self.deck) - 1, 0, -1):
-      j = random.randint(0, i + 1)
-      self.deck[i], self.deck[j] = self.deck[j], self.deck[i]
-  return self.deck
-}
-
-def deal_cards(self, players):
-    for i in range(5):
-        for player in players:
-            temp = self.deck.pop()
-            player.hand.append(temp)
-
-def draw(self, player):
-    for i in range(2):
-        temp = self.deck.pop()
-        player.hand.append(temp)
-
-def draw_five(self, player):
-    for i in range(5):
-        temp = self.deck.pop()
-        player.hand.append(temp)
-
-*/

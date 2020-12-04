@@ -24,6 +24,8 @@ export class Game {
     ];
     this.playerActive = this.players[0];
     this.playsLeft = 0;
+    this.deck.shuffle();
+    this.deck.dealCards(this.players);
   }
 
   printBoard(): void {
@@ -44,6 +46,29 @@ export class Game {
       console.log('-------------------')
     })
     console.log(`Discard: ${this.discard}`)
+  }
+
+  checkWinner(): boolean {
+    this.players.forEach(player => {
+      let fullSets: number = 0;
+      player.properties.forEach(stack => {
+        if (stack.isFull) {
+          fullSets += 1;
+        }
+      })
+      if (fullSets >= 3) {
+        console.log(`${player.name} is the winner!`)
+        return true;
+      }
+    })
+    return false;
+  }
+
+  takeTurn() {
+    this.playsLeft = 3;
+    if (this.playerActive.hand.length === 0) {
+      this.deck.drawFive(this.playerActive)
+    }
   }
 
 

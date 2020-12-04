@@ -7,7 +7,6 @@ import { ActionCard } from './ActionCard';
 import { RentCard } from './RentCard'; 
 import { MoneyCard } from './MoneyCard';
 
-
 export class Game {
   deck: Deck;
   discard: Array<PropertyCard | PropertyWildCard | ActionCard | RentCard | MoneyCard>;

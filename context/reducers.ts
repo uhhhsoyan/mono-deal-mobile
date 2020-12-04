@@ -1,3 +1,4 @@
+import { Game } from '../game/Game';
 type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? {
@@ -14,6 +15,34 @@ export enum Types {
   Delete = "DELETE_PRODUCT",
   Add = "ADD_PRODUCT"
 }
+
+// Game
+
+type GameType = {
+  id: number;
+  name: string;
+  price: number;
+};
+
+type GamePayload = {
+  [Types.Add]: undefined;
+};
+
+export type GameActions = ActionMap<
+  GamePayload
+>[keyof ActionMap<GamePayload>];
+
+export const gameReducer = (
+  state: Game,
+  action: ProductActions | ShoppingCartActions | GameActions
+) => {
+  switch (action.type) {
+    case Types.Add:
+      return state;
+    default:
+      return state;
+  }
+};
 
 // Product
 

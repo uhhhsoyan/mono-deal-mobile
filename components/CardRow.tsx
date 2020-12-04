@@ -12,15 +12,9 @@ const CardRow: FC<Props> = ({ cards }) => {
   
   return (
     <ScrollView horizontal>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {cards.map(card => {
+        return <Card card={card} />
+      })}
     </ScrollView>
   )
 }

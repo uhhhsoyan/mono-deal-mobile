@@ -11,10 +11,10 @@ const GameScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.handContainer}>
-        <CardRow cards={[]}/>
+        <CardRow cards={state.game.playerActive.hand}/>
       </View>
       <View style={styles.propContainer}>
-        <Text>{state.shoppingCart}</Text>
+        <Text>{state.game.playerActive.hand[0].value}</Text>
       </View>
       <View style={styles.bankContainer}></View>
     </View>

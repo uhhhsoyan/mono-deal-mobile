@@ -13,11 +13,6 @@ export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
-  useEffect(() => {
-    const game = new Game('Eric', 'Rachel');
-    game.printBoard();
-  }, [])
-
   if (!isLoadingComplete) {
     return null;
   } else {

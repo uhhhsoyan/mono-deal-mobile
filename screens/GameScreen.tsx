@@ -3,13 +3,14 @@ import { StyleSheet } from 'react-native';
 
 import { AppContext } from '../context/context';
 import CardRow from '../components/CardRow';
-import CardStack from '../components/CardStack';
+import Card from '../components/Card';
 import { Text, View } from '../components/Themed';
 
 const GameScreen = () => {
   const { state, dispatch } = React.useContext(AppContext);
   return (
     <View style={styles.container}>
+      <Card card={state.game.playerActive.hand[0]} />
       <View style={styles.handContainer}>
         <CardRow cards={state.game.playerActive.hand}/>
       </View>

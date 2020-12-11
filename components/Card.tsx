@@ -17,6 +17,7 @@ type Props = {
 }
 
 const Card: FC<Props> = ({ card }) => {
+  
   const renderCard = () => {
     if (card instanceof PropertyCard) {
       return <RenderPropertyCard card={card}/>;
@@ -47,14 +48,20 @@ const Card: FC<Props> = ({ card }) => {
 
 const styles = StyleSheet.create({
   container: {
-    height: 100,
-    width: 70,
-    borderWidth: .5,
+    //height: 200,
+    //width: 150,
+    height: '100%',
+    width: undefined,
+    aspectRatio: .75,
+    //borderWidth: .5,
+    //borderColor: 'black',
     borderRadius: 5,
-    borderColor: 'black',
     backgroundColor: 'white',
     marginLeft: 2,
     marginRight: 2,
+    shadowColor: '#000',
+    shadowOpacity: .5,
+    shadowOffset: { width: 0, height: 0 }
   }
 })
 

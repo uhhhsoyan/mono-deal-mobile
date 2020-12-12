@@ -12,9 +12,10 @@ const PropertyRow: FC<Props> = ({ stacks }) => {
   
   return (
     <ScrollView horizontal>
-      {stacks.length === 0 ? <AddPropertyStack /> : stacks.map(stack => {
+      {stacks.map(stack => {
         return <CardStack stack={stack} />
       })}
+      <AddPropertyStack />
     </ScrollView>
   )
 }

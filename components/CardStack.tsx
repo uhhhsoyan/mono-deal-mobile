@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Card as CardClass } from '../game/Card';
+import { PropertyStack } from '../game/PropertyStack';
 
 type Props = {
-  cards: CardClass[]
+  stack: PropertyStack
 }
 
-const CardStack: FC<Props> = ({ cards }) => {
+const CardStack: FC<Props> = ({ stack }) => {
   
   const renderCards = (cards: CardClass[]) => {
     return cards.map((card, idx) => {
@@ -17,7 +18,7 @@ const CardStack: FC<Props> = ({ cards }) => {
 
   return (
     <>
-      {cards.length === 0 ? <View style={styles.emptyContainer}></View> : renderCards(cards)}
+      <View style={styles.emptyContainer}><Text>TESTING</Text></View>
     </>
   )
 }
@@ -28,9 +29,10 @@ const styles = StyleSheet.create({
     width: undefined,
     aspectRatio: .75,
     borderRadius: 5,
-    backgroundColor: '#ebebeb',
-    marginLeft: 2,
-    marginRight: 2,
+    borderStyle: 'dashed',
+    borderWidth: 1,
+    borderColor: '#dbdbdb',
+    marginLeft: '3%',
   }
 })
 

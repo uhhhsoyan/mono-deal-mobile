@@ -1,45 +1,11 @@
 import React, { FC } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { RentCard } from '../game/RentCard'; 
+import { cardColors } from '../styles/colors';
 
 type Props = {
   card: RentCard
 }
-/*
-<View style={styles.rentTextContainer}>
-  <Text style={styles.rentText}>{card.colors.length <= 2 ? 'rent' : 'rent wild' }</Text>
-</View>
-*/
-
-// replace with enum? move to styles / types file...
-const colorPicker: { [key: string]: string; } = {
-  'brown': '#7a3d00',
-  'light_blue': '#abf1ff',
-  'dark_blue': '#1b77e0',
-  'orange': '#ff9900',
-  'pink': '#ff59e6',
-  'yellow': '#fffb00',
-  'red': '#ff0000',
-  'green': '#17ad00',
-  'utility': '#d8f2ae',
-  'railroad': '#000',
-}
-
-/*
-const colors = [
-  'brown',
-  'light_blue',
-  'dark_blue',
-  'orange',
-  'pink',
-  'yellow',
-  'red',
-  'green',
-  'utility',
-  'railroad',
-]
-*/
-
 
 const RenderRentCard: FC<Props> = ({ card }) => {
 
@@ -47,13 +13,24 @@ const RenderRentCard: FC<Props> = ({ card }) => {
     return (
       colors.length === 2 ? (
         <>
-          <View style={[styles.rentColorContainer, { borderLeftColor: colorPicker[card.colors[0]], borderTopColor: colorPicker[card.colors[0]], transform: [{ rotateZ: '45deg' }] }]}></View>
-          <View style={[styles.rentColorContainer, { borderLeftColor: colorPicker[card.colors[1]], borderTopColor: colorPicker[card.colors[1]], transform: [{ rotateZ: '-135deg' }] }]}></View>
+          <View style={[styles.rentColorContainer, { 
+            borderLeftColor: cardColors[card.colors[0]], 
+            borderTopColor: cardColors[card.colors[0]], 
+            transform: [{ rotateZ: '45deg' }] }]}>
+          </View>
+          <View style={[styles.rentColorContainer, { 
+            borderLeftColor: cardColors[card.colors[1]], 
+            borderTopColor: cardColors[card.colors[1]], 
+            transform: [{ rotateZ: '-135deg' }] }]}>
+          </View>
         </>
       ) : (
         <>
           {colors.map((color, idx) => {
-            return <View style={[styles.rentColorContainer, { borderLeftColor: colorPicker[color], transform: [{ rotateZ: `${36*idx}deg` }] }]}></View>
+            return <View style={[styles.rentColorContainer, { 
+              borderLeftColor: cardColors[color], 
+              transform: [{ rotateZ: `${36*idx}deg` }] }]}>
+            </View>
           })}
   
         </>

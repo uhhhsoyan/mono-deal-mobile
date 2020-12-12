@@ -1,6 +1,5 @@
 import React, { FC, useEffect, useRef } from 'react';
-import { View, Text, Animated, StyleSheet } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { View, TouchableOpacity, Text, Animated, StyleSheet } from 'react-native';
 import { PropertyCard } from '../game/PropertyCard'; 
 import { PropertyWildCard } from '../game/PropertyWildCard';
 import { ActionCard } from '../game/ActionCard'; 

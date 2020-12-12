@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 
 import { PropertyCard } from '../game/PropertyCard';
 import { ActionCard } from '../game/ActionCard';
@@ -8,9 +8,9 @@ import { MoneyCard } from '../game/MoneyCard';
 import { PropertyWildCard } from '../game/PropertyWildCard';
 
 import { AppContext } from '../context/context';
-import CardRow from '../components/CardRow';
-import Card from '../components/Card';
-import { Text, View } from '../components/Themed';
+import { CardRow, PropertyRow, MessageBoard, Discard } from '../components';
+
+
 
 const GameScreen = () => {
   const { state, dispatch } = React.useContext(AppContext);
@@ -27,8 +27,10 @@ const GameScreen = () => {
 
   return (
     <View style={styles.container}>
+      <MessageBoard message='HEY'/>
+      <Discard cards={state.game.discard}/>
       <View style={styles.propertiesContainer}>
-      
+        <PropertyRow stacks={state.game.playerActive.properties}/>
       </View>
       <View style={styles.handContainer}>
         <CardRow cards={state.game.playerActive.hand}/>
@@ -55,15 +57,12 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   propertiesContainer: {
-   
-    height: '10%',
+    height: '12%',
     width: '100%',
-
-    borderStyle: 'dashed',
-    borderWidth: 1,
-    borderColor: '#dbdbdb',
     backgroundColor: 'transparent',
     marginBottom: 10,
+    borderColor: 'red',
+    borderWidth: 2,
   },
   bankContainer: {
 

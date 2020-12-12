@@ -22,19 +22,16 @@ const GameScreen = () => {
     new RentCard(3, ['light_blue', 'brown', 'pink', 'orange', 'railroad', 'utility', 'red', 'yellow', 'green', 'dark_blue']),
     new MoneyCard(1),
     new PropertyWildCard(4, ['green', 'dark_blue']),
-    new PropertyWildCard(0, ['light_blue', 'brown', 'pink', 'orange', 'railroad', 'utility', 'red', 'yellow', 'green', 'dark_blue']),
-
+    new PropertyWildCard(0, ['brown', 'light_blue', 'pink', 'orange', 'red', 'yellow', 'green', 'dark_blue', 'railroad', 'utility']),
   ]
-
-  //<CardRow cards={state.game.playerActive.hand}/>
 
   return (
     <View style={styles.container}>
-      <View style={styles.propContainer}>
-        <Text>{state.game.playerActive.hand[0].value}</Text>
+      <View style={styles.propertiesContainer}>
+      
       </View>
       <View style={styles.handContainer}>
-      <CardRow cards={testCards}/>
+        <CardRow cards={state.game.playerActive.hand}/>
       </View>
       <View style={styles.bankContainer}></View>
     </View>
@@ -49,17 +46,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   handContainer: {
-
     height: '15%',
     width: '100%',
-
     borderStyle: 'dashed',
     borderWidth: 1,
     borderColor: '#dbdbdb',
     backgroundColor: 'transparent',
     marginBottom: 30,
   },
-  propContainer: {
+  propertiesContainer: {
    
     height: '10%',
     width: '100%',

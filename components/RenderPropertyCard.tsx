@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { PropertyCard } from '../game/PropertyCard'; 
-import { colors } from '../styles/colors';
+import { cardColors } from '../styles/colors';
 
 type Props = {
   card: PropertyCard
@@ -21,7 +21,7 @@ const RenderPropertyCard: FC<Props> = ({ card }) => {
 
   return (
     <View style={styles.container}>
-      <View style={[styles.header, { backgroundColor: colors[card.color] }]}>
+      <View style={[styles.header, { backgroundColor: cardColors[card.color] }]}>
         <Text style={styles.headerText}>{card.name}</Text>
       </View>
       <View style={styles.valueContainer}>

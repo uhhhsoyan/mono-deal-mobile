@@ -1,14 +1,14 @@
-export const colors: { [key: string]: string; } = {
-    'brown': '#7a3d00',
-    'light_blue': '#abf1ff',
-    'pink': '#ff59e6',
-    'orange': '#ff9900',
-    'red': '#ff0000',
-    'yellow': '#fffb00',
-    'green': '#17ad00',
-    'dark_blue': '#1b77e0',
-    'railroad': '#000',
-    'utility': '#d8f2ae',
+export const cardColors: { [key: string]: string; } = {
+  'brown': '#7a3d00',
+  'light_blue': '#abf1ff',
+  'pink': '#ff59e6',
+  'orange': '#ff9900',
+  'red': '#ff0000',
+  'yellow': '#fffb00',
+  'green': '#17ad00',
+  'dark_blue': '#1b77e0',
+  'railroad': '#000',
+  'utility': '#d8f2ae',
 }
 
 export const actionColors: { [key: string]: string; } = {

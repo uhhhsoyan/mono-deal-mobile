@@ -8,6 +8,7 @@ import { RentCard } from '../game/RentCard';
 import { MoneyCard } from '../game/MoneyCard';
 import RenderPropertyCard from './RenderPropertyCard';
 import RenderPropertyWildCard from './RenderPropertyWildCard';
+import RenderPropertyWildCardAll from './RenderPropertyWildCardAll';
 import RenderActionCard from './RenderActionCard';
 import RenderMoneyCard from './RenderMoneyCard';
 import RenderRentCard from './RenderRentCard';
@@ -23,7 +24,11 @@ const Card: FC<Props> = ({ card }) => {
       return <RenderPropertyCard card={card}/>;
     }
     if (card instanceof PropertyWildCard) {
-      return <RenderPropertyWildCard card={card}/>;
+      if (card.color.length === 2) {
+        return <RenderPropertyWildCard card={card}/>
+      } else {
+        return <RenderPropertyWildCardAll card={card}/>
+      }
     } 
     if (card instanceof ActionCard) {
       return <RenderActionCard card={card}/>;
@@ -50,7 +55,7 @@ const styles = StyleSheet.create({
   container: {
     //height: 200,
     //width: 150,
-    height: '100%',
+    height: '99%',
     width: undefined,
     aspectRatio: .75,
     //borderWidth: .5,
